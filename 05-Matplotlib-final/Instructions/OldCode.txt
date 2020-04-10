@@ -1,0 +1,25 @@
+Bar Plots
+
+# Generate a bar plot showing the number of mice per time point for each treatment throughout the course of the study using pandas. 
+
+Working code!!!
+count_per_drug = mouse_data_df.groupby('Drug Regimen')['Timepoint'].count()
+print(count_per_drug.plot.bar())
+
+
+index = mouse_data_df['Drug Regimen'].unique()
+
+# mouse_data_df.groupby('Drug Regimen').plot.bar(x='Mouse ID',y='Timepoint',title='mouse_data_df('Drug Regimen')')
+# mouse_data_df['Drug Regimen'].value_counts()
+mice_per_timepoint = mouse_data_df.groupby('Drug Regimen')['Timepoint'].value_counts()
+# mice_per_timepoint.head(15)
+mice_per_timepoint
+mice_per_timepoint_df =  pd.DataFrame(mice_per_timepoint)
+
+for drugs in mice_per_timepoint_df("Drug Regimen"):
+    print(drugs)
+
+# mice_per_timepoint_df["Timepoint"].sum()
+# drug on the X
+# Number of mice 
+# mice_per_timepoint.plot.bar(x='Drug Regimen', y='Timepoint')
